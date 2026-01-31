@@ -50,9 +50,10 @@ export default function Home() {
 
   // 添加示例数据
   const handleAddSampleData = () => {
+    const timestamp = Date.now();
     const sampleBoxes: Box[] = [
       {
-        id: 'sample1',
+        id: `sample1-${timestamp}`,
         name: '电子设备A',
         length: 100,
         width: 80,
@@ -60,7 +61,7 @@ export default function Home() {
         color: '#4299e1'
       },
       {
-        id: 'sample2',
+        id: `sample2-${timestamp}`,
         name: '纺织品B',
         length: 80,
         width: 60,
@@ -68,7 +69,7 @@ export default function Home() {
         color: '#48bb78'
       },
       {
-        id: 'sample3',
+        id: `sample3-${timestamp}`,
         name: '家具C',
         length: 120,
         width: 70,
@@ -76,7 +77,7 @@ export default function Home() {
         color: '#ed8936'
       },
       {
-        id: 'sample4',
+        id: `sample4-${timestamp}`,
         name: '配件D',
         length: 60,
         width: 40,
@@ -84,7 +85,7 @@ export default function Home() {
         color: '#f56565'
       },
       {
-        id: 'sample5',
+        id: `sample5-${timestamp}`,
         name: '日用品E',
         length: 50,
         width: 40,
@@ -118,21 +119,19 @@ export default function Home() {
               <div className="space-y-2">
                 <button
                   onClick={() => setSelectedContainer(CONTAINER_TYPES['20ft'])}
-                  className={`w-full px-4 py-3 rounded-md transition-colors ${
-                    selectedContainer.id === '20ft'
+                  className={`w-full px-4 py-3 rounded-md transition-colors ${selectedContainer.id === '20ft'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   20英尺集装箱 (589×235×239cm)
                 </button>
                 <button
                   onClick={() => setSelectedContainer(CONTAINER_TYPES['40ft'])}
-                  className={`w-full px-4 py-3 rounded-md transition-colors ${
-                    selectedContainer.id === '40ft'
+                  className={`w-full px-4 py-3 rounded-md transition-colors ${selectedContainer.id === '40ft'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   40英尺集装箱 (1203×235×239cm)
                 </button>
@@ -177,11 +176,10 @@ export default function Home() {
               <button
                 onClick={handleAutoPack}
                 disabled={boxes.length === 0 || isPacking}
-                className={`w-full py-4 mb-4 text-white font-semibold rounded-lg transition-all ${
-                  boxes.length === 0 || isPacking
+                className={`w-full py-4 mb-4 text-white font-semibold rounded-lg transition-all ${boxes.length === 0 || isPacking
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-blue-600 hover:bg-blue-700'
-                }`}
+                  }`}
               >
                 {isPacking ? (
                   <span className="flex items-center justify-center gap-2">
